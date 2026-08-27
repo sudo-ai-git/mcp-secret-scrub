@@ -1,0 +1,11 @@
+# Smithery configuration (published once a service token exists)
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction:
+    type: stdio
+    command: python3
+    args:
+      - /app/mcp_server.py

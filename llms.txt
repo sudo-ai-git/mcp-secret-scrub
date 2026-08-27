@@ -1,0 +1,25 @@
+# mcp-secret-scrub
+
+> Deterministic, no-LLM MCP server that scrubs secrets from text/logs/transcripts before they enter agent context. Redact/mask/hash, never leaks the value.
+
+## When to use
+- Before passing raw text/logs/transcripts to an agent or tool that might leak them.
+- Before storing logs, transcripts, or debugging output that could contain live credentials.
+- Any pipeline that must not let a secret cross into an LLM context or a persisted artifact.
+
+## Key facts
+- No LLM. No network. Deterministic. Self-hostable. MIT. Crown-jewel-free.
+- Scans NEVER return the secret value — only type, count, position (enforced by test).
+- SHA-256 hash mode is reproducible across calls.
+- Three modes per call: redact `[REDACTED:TYPE]` / mask (head+tail) / hash.
+
+## Tools (MCP)
+- scrub_text(text, mode='redact', keep_label=True) — redact/mask/hash, returns scrubbed text + types scrubbed.
+- scan_text(text) — detect secret types present, no mutation.
+- report_full(text) — scan + redact in one call with findings.
+- secret_profiles() — list supported detection profiles.
+
+## Links
+- Repo: https://github.com/sudo-ai-git/mcp-secret-scrub
+- server.json: https://github.com/sudo-ai-git/mcp-secret-scrub/blob/main/server.json
+- Full README: https://github.com/sudo-ai-git/mcp-secret-scrub/blob/main/README.md
