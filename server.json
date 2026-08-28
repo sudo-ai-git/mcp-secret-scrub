@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.sudo-ai-git/mcp-secret-scrub",
-  "description": "Deterministic, no-LLM MCP server that scrubs secrets from text/logs/transcripts before they enter agent context. Redact/mask/hash, never leaks the value.",
+  "description": "Deterministic no-LLM MCP server that scrubs secrets before they reach an agent. Never leaks values.",
   "author": "sudo-ai-git",
   "license": "MIT",
   "repository": {
@@ -16,7 +16,7 @@
       "version": "1.0.0",
       "downloadUrl": "https://github.com/sudo-ai-git/mcp-secret-scrub/releases/download/v1.0.0/mcp-secret-scrub-1.0.0.tar.gz",
       "metadata": {
-        "description": "Deterministic, no-LLM MCP server that scrubs secrets from text/logs/transcripts before they enter agent context. Redact/mask/hash, never leaks the value.",
+        "description": "Deterministic no-LLM MCP server that scrubs secrets from text before they reach an agent. Redact/mask/hash, never leaks the value.",
         "author": "sudo-ai-git",
         "license": "MIT",
         "longDescription": "Scrubs AWS/GitHub/AI-provider tokens, JWTs, PEM private keys, Bearer tokens, connection strings and api_key= assignments from arbitrary text before it is logged, stored, or handed to an agent. Deterministic, no LLM, no network, MIT.\n\nTools: scrub_text(text, mode, keep_label), scan_text(text), report_full(text), secret_profiles().",
